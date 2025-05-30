@@ -4,7 +4,10 @@ export const useDataStore= defineStore('data',()=>{
     const {data,pending,error} = useFetch('https://dummyjson.com/posts')
     BigData.value = data;
     console.log(BigData.value); 
+    function navigateToPost(id) {
+        navigateTo(`/posts/${id}`);
+    }
     return {
-        BigData
+        BigData, navigateToPost
     }
 })

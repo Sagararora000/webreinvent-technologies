@@ -1,16 +1,18 @@
 <script setup>
     import { useDataStore } from '~/stores/dataStore';
     const store = useDataStore();
-    const { BigData } = store;
+    const { BigData, navigateToPost } = store;
     console.log(BigData.posts);
 </script>
 <template>
     <div class="text-center">
-        This is posts page
+        <p class="text-[#89CFF0] text-3xl font-bold p-4">This is posts page</p>
+
         <div class="grid grid-cols-3">
             <div
                 v-for="x in BigData.posts"
-                class="bg-gray-100 flex items-center justify-center p-4"
+                @click="navigateToPost(x.id)"
+                class="bg-gray-100 flex items-center justify-center p-4 cursor-pointer"
             >
                 <div
                     class="bg-white max-w-xl w-full rounded-xl shadow p-6 space-y-4"
